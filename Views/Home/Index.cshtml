@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model Dojodachi
+<div class="jumbotron">
+    <h1>DOJODACHI!</h1>
+    <div>
+        <p style="display:inline-block">Happiness: @Model.Happiness</p>
+        <p style="display:inline-block">Fullness: @Model.Fullness</p>
+        <p style="display:inline-block">Energy: @Model.Energy</p>
+        <p style="display:inline-block">Food: @Model.Food</p>
+    </div>
+    <div>
+        <img src="@Model.ImgUrl" style="width: 350px; height: 350px; border:1px solid black;">
+        <p>@Model.Log</p>
+    </div>
+    <div>
+        <a href="/feed" class="btn btn-primary">Feed</a>
+        <a href="/play" class="btn btn-warning">Play</a>
+        <a href="/work" class="btn btn-danger">Work</a>
+        <a href="/sleep" class="btn btn-success">Sleep</a>
+    </div>
+    @if(Model.isWin() is true)
+    {
+        <a href="/restart" class="btn btn-info">Restart</a>
+    }
+    @if(Model.isLost() is true)
+    {
+        <a href="/restart" class="btn btn-info">Restart</a>
+    }
+</div>
